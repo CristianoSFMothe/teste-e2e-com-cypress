@@ -1,3 +1,5 @@
+// cypress/support/commands.js
+
 Cypress.Commands.add('fillSignupFormAndSubmit', (email, password) => {
   cy.intercept('GET', '**/notes').as('getNotes')
   cy.visit('/signup')
@@ -14,6 +16,10 @@ Cypress.Commands.add('fillSignupFormAndSubmit', (email, password) => {
     cy.wait('@getNotes')
   })
 })
+
+// cypress/support/commands.js
+
+// ... Comando de signup aqui
 
 Cypress.Commands.add('guiLogin', (
   username = Cypress.env('USER_EMAIL'),
@@ -35,6 +41,10 @@ Cypress.Commands.add('sessionLogin', (
   const login = () => cy.guiLogin(username, password)
   cy.session(username, login)
 })
+
+// cypress/support/commands.js
+
+// Outros comands aqui ...
 
 const attachFileHandler = () => {
   cy.get('#file').selectFile('cypress/fixtures/example.json')
@@ -85,6 +95,7 @@ Cypress.Commands.add('deleteNote', note => {
   cy.contains('.list-group-item', note)
     .should('not.exist')
 })
+
 
 Cypress.Commands.add('fillSettingsFormAndSubmit', () => {
   cy.visit('/settings')
