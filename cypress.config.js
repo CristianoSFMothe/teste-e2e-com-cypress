@@ -12,7 +12,7 @@ module.exports = defineConfig({
       return config
     },
     requestTimeout: 50000,
-    defaultCommandTimeout: 50000,
+    defaultCommandTimeout: 30000,
   },
   projectId: '39ve2h'
 })
